@@ -1,0 +1,71 @@
+backend:
+  name: github
+  repo: yourusername/beyondthelimitcreations   # ← replace with your GitHub repo
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "homepage"
+    label: "Homepage"
+    files:
+      - file: "index.html"
+        label: "Homepage Content"
+        name: "home"
+        fields:
+          - { label: "Hero Title", name: "title", widget: "string" }
+          - { label: "Hero Subtitle", name: "subtitle", widget: "text" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Poster", name: "image", widget: "image" }
+
+  - name: "press"
+    label: "Press Releases"
+    folder: "content/press"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Headline", name: "headline", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Article Link", name: "link", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+
+  - name: "gallery"
+    label: "Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Caption", name: "caption", widget: "string" }
+
+  - name: "team"
+    label: "Team"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Bio", name: "bio", widget: "text" }
+      - { label: "Photo", name: "photo", widget: "image" }
+
+  - name: "contact"
+    label: "Contact Info"
+    files:
+      - file: "content/contact.yml"
+        label: "Contact"
+        name: "contact"
+        fields:
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Address", name: "address", widget: "string" }
+          - { label: "Social Links", name: "social", widget: "list" }
